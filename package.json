@@ -1,0 +1,23 @@
+{
+  "name": "event-finder-with-geolocation",
+  "version": "1.0.0",
+  "description": "Event Finder with Geolocation - Event search engine powered by Elasticsearch",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "load-data": "node scripts/loadEvents.js"
+  },
+  "keywords": ["elasticsearch", "events", "geolocation", "search"],
+  "author": "AFIonescu",
+  "license": "MIT",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.17.0",
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

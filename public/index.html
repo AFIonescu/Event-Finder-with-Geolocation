@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Finder with Geolocation - Powered by Elasticsearch</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎉 Event Finder with Geolocation</h1>
+            <p class="subtitle">Discover events near you - Powered by Elasticsearch</p>
+        </header>
+
+        <div class="view-toggle">
+            <button id="listViewBtn" class="toggle-btn active">📋 List View</button>
+            <button id="mapViewBtn" class="toggle-btn">🗺️ Map View</button>
+        </div>
+
+        <div class="search-section">
+            <div class="search-bar">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search events by name, venue, city, or organizer..."
+                    autocomplete="off"
+                />
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <div class="location-search">
+                <input type="text" id="locationInput" placeholder="Enter city or address">
+                <button id="locationBtn">📍 Find My Location</button>
+                <div class="distance-group">
+                    <label for="distanceRange">Distance:</label>
+                    <select id="distanceRange">
+                        <option value="10km">10 km</option>
+                        <option value="25km">25 km</option>
+                        <option value="50km" selected>50 km</option>
+                        <option value="100km">100 km</option>
+                        <option value="250km">250 km</option>
+                        <option value="500km">500 km</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="dateFrom">Date From:</label>
+                    <input type="date" id="dateFrom">
+                </div>
+
+                <div class="filter-group">
+                    <label for="dateTo">Date To:</label>
+                    <input type="date" id="dateTo">
+                </div>
+
+                <div class="filter-group">
+                    <label for="priceMax">Max Price ($):</label>
+                    <input type="number" id="priceMax" placeholder="Any" min="0">
+                </div>
+
+                <div class="filter-group">
+                    <label for="sortBy">Sort By:</label>
+                    <select id="sortBy">
+                        <option value="relevance">Relevance</option>
+                        <option value="date">Date</option>
+                        <option value="price">Price</option>
+                        <option value="popularity">Popularity</option>
+                        <option value="distance">Distance (if location set)</option>
+                    </select>
+                </div>
+
+                <button id="clearFilters" class="clear-btn">Clear All</button>
+            </div>
+        </div>
+
+        <!-- List View -->
+        <div id="listView" class="view-content active">
+            <div class="results-info">
+                <span id="resultsCount"></span>
+                <span id="locationInfo"></span>
+            </div>
+
+            <div id="resultsContainer" class="results-container">
+                <!-- Results will be inserted here -->
+            </div>
+
+            <div id="pagination" class="pagination">
+                <!-- Pagination will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Map View -->
+        <div id="mapView" class="view-content">
+            <div id="map"></div>
+            <div id="mapStats" class="map-stats"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
