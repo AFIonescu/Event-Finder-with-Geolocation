@@ -100,10 +100,6 @@ docker-compose down
 - **aggregations** for category statistics
 - **script_fields** for distance calculations
 
-## License
-
-MIT License
-
 ## Author
 
 **AFIonescu**
