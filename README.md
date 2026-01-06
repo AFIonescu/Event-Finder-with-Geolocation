@@ -99,9 +99,3 @@ docker-compose down
 - **multi_match** with field boosting (title^3, description^2)
 - **aggregations** for category statistics
 - **script_fields** for distance calculations
-
-## Author
-
-**AFIonescu**
-
-Built as a demonstration of Elasticsearch's geo-search capabilities.
